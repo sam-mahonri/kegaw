@@ -76,7 +76,6 @@ conditions use `@depends`.
 @depends <age >= 18> :
     @log <"adult">.
 ;
-
 ```
 
 loops use `@while`.
@@ -133,7 +132,13 @@ you can customize the language behavior in `kegaw.kako`.
     SENTENCE_END .
     ASSIGN <-
     FUNC_START @
+    COMMENT ~~~
 @/syntax@
+
+@paths@
+    SHARDS_PATH shards
+    BUILD_PATH build
+@/paths@
 
 @aka@
     drawer var
