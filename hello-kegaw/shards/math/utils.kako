@@ -1,0 +1,29 @@
+@calculate_square <n> :
+    @var#int result.
+    result <- n * n.
+    return result.
+;
+
+@check_parity <n> :
+    @var#int rem.
+    rem <- n % 2.
+    @depends <rem == 0> :
+        @log <"status: even.">.
+    ;
+    @depends <rem != 0> :
+        @log <"status: odd.">.
+    ;
+    return 0.
+;
+
+@calculate_factorial <n> :
+    @var#int i.
+    @var#int res.
+    res <- 1.
+    i <- n.
+    @while <i > 1> :
+        res <- res * i.
+        i <- i - 1.
+    ;
+    return res.
+;

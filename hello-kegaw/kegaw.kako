@@ -1,0 +1,20 @@
+@syntax@
+    SCOPE_START :
+    SCOPE_END ;
+    ARGS_START <
+    ARGS_END >
+    SENTENCE_END .
+    ASSIGN <-
+    FUNC_START @
+    COMMENT ~~~
+@/syntax@
+
+@paths@
+    SHARDS_PATH shards
+    BUILD_PATH build
+@/paths@
+
+@aka@
+    drawer var
+    print log
+@/aka@

@@ -1,0 +1,86 @@
+@use math#utils.
+@use ^talk.
+@use ^trans.
+@use ^log.
+@use ^terminal.
+@use ^runc.
+
+@show_header <string user_name> :
+    @terminal <"clear">.
+    @log <"----------------------------------------">.
+    @log <"KEGAW DEMO - SESSION: ", #flow>.
+    @log <user_name>.
+    @log <"----------------------------------------">.
+    return 0.
+;
+
+@a <> :
+    @var#string user.
+    @var#string raw_input.
+    @var#int choice.
+    @var#int active.
+    @var#int buffer.
+
+    @log <"identifying user: ", #flow>.
+    user <- @talk<>.
+    
+    active <- 1.
+
+    @while <active == 1> :
+        @show_header <user>.
+        @log <"1. square calculation (shard)">.
+        @log <"2. parity check (shard)">.
+        @log <"3. factorial calculation (shard)">.
+        @log <"4. system directory listing (terminal)">.
+        @log <"5. system clock (raw c injection)">.
+        @log <"0. exit">.
+        @log <"command: ", #flow>.
+
+        raw_input <- @talk<>.
+        choice <- @trans<#int, raw_input>.
+
+        @depends <choice == 1> :
+            @log <"input value: ", #flow>.
+            raw_input <- @talk<>.
+            buffer <- @trans<#int, raw_input>.
+            buffer <- @calculate_square <buffer>.
+            @log <"result: ", #flow>.
+            @log <buffer>.
+        ;
+
+        @depends <choice == 2> :
+            @log <"input value: ", #flow>.
+            raw_input <- @talk<>.
+            buffer <- @trans<#int, raw_input>.
+            @check_parity <buffer>.
+        ;
+
+        @depends <choice == 3> :
+            @log <"input value: ", #flow>.
+            raw_input <- @talk<>.
+            buffer <- @trans<#int, raw_input>.
+            buffer <- @calculate_factorial <buffer>.
+            @log <"factorial result: ", #flow>.
+            @log <buffer>.
+        ;
+
+        @depends <choice == 4> :
+            @terminal <"ls -lh">.
+        ;
+
+        @depends <choice == 5> :
+            @log <"executing clock_gettime via runc: ">.
+            @runc <"system(\"date +%T\");">.
+        ;
+
+        @depends <choice == 0> :
+            @log <"terminating session...">.
+            active <- 0.
+        ;
+
+        @depends <choice != 0> :
+            @log <"press enter to continue...", #flow>.
+            @talk<>.
+        ;
+    ;
+;
