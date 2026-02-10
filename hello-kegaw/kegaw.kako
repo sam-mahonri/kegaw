@@ -11,7 +11,7 @@
 
 @paths@
     SHARDS_PATH shards
-    BUILD_PATH build
+    BUILD_PATH dist
 @/paths@
 
 @aka@

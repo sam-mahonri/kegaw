@@ -11,7 +11,6 @@
     @log <"hello kegaw: ", #flow>.
     @log <user_name>.
     @log <"----------------------------------------">.
-    return 0.
 ;
 
 @a <> :
