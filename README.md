@@ -1,3 +1,5 @@
+![Banner](repo/banner.png)
+
 # kegaw language
 
 kegaw lang is a compiled educational programming language.
@@ -42,72 +44,87 @@ the binary will be in the dist/ folder.
 
 ## syntax basics
 
-statements must end with a dot.
+in the default syntax style, statements must end with a dot.
 scopes start with : and end with ;.
 
 ### variables
-declare variables using the @var (or @drawer) keyword followed by # and the type.
-@var#string name.
-@var#int age.
+declare variables using the `@var` keyword followed by `#` and the type.
+`@var#string name.`
+`@var#int age.`
 
-assign values using <-.
-name <- "sam".
-age <- 25.
+assign values using `<-`.
+`name <- "sam".`
+`age <- 25.`
 
 ### output
-use @log (or @moan) to print to stdout.
-@log <"hello world">.
-@log <name>.
+use `@log` to print to stdout.
+`@log <"hello world">.`
+`@log <name>.`
 
-for no newline, use the #flow flag:
-@log <"loading: ", #flow>.
+for no newline, use the `#flow` flag:
+`@log <"loading: ", #flow>.`
 
 ### input
-use @talk to get string input from the user.
-name <- @talk<>.
+use `@talk` to get string input from the user.
+`name <- @talk<>.`
 
 ### control flow
-conditions use @depends.
+
+conditions use `@depends`.
+
+```
 @depends <age >= 18> :
     @log <"adult">.
 ;
 
-loops use @while.
+```
+
+loops use `@while`.
+
+```
 @while <x < 10> :
     x <- x + 1.
 ;
+```
 
 ### functions
-define functions with @name <args> : scope ;.
+
+define functions with `@name <args> : scope ;`.
+
+```
 @sum <int a, int b> :
     return a + b.
 ;
+```
 
-the main entry point must be @a <> : scope ;.
+the main entry point must be `@a <> : scope ;`.
 
 ## modularity and shards
 
-import files from the shards directory using @use.
+import files from the shards directory using `@use`.
 subdirectories are accessed using # instead of /.
-@use math#utils.
+`@use math#utils`.
 
 if math/utils.kako exists, its functions become available.
 
 ## builtins and c integration
 
 import internal features with ^.
+```
 @use ^talk.
 @use ^terminal.
 @use ^runc.
+```
 
-- @terminal <"ls -la">. : runs a system command.
-- @runc <"printf('hi');">. : injects raw c code directly.
-- @trans <#int, string_var>. : converts string to int (atoi) or float (atof).
+- `@terminal <"ls -la">.` : runs a system command.
+- `@runc <"printf('hi');">.` : injects raw c code directly.
+- `@trans <#int, string_var>.` : converts string to int (atoi) or float (atof).
 
 ## configuration (kegaw.kako)
 
-you can customize the language behavior in kegaw.kako.
+you can customize the language behavior in `kegaw.kako`.
 
+```
 @syntax@
     SCOPE_START :
     SCOPE_END ;
@@ -122,5 +139,6 @@ you can customize the language behavior in kegaw.kako.
     drawer var
     print log
 @/aka@
+```
 
 the aka section allows you to rename any internal keyword to your preference.
