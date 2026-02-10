@@ -1,0 +1,17 @@
+This product bundles and redistributes third-party software:
+
+---
+
+Python
+Copyright © Python Software Foundation
+Licensed under the Python Software Foundation License
+
+---
+
+PyInstaller
+Copyright © PyInstaller Development Team
+Licensed under the GNU General Public License v2 with a special exception
+
+---
+
+Other third-party libraries may be included as dependencies.
