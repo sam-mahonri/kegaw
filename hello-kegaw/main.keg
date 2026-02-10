@@ -8,7 +8,7 @@
 @show_header <string user_name> :
     @terminal <"clear">.
     @log <"----------------------------------------">.
-    @log <"KEGAW DEMO - SESSION: ", #flow>.
+    @log <"hello kegaw: ", #flow>.
     @log <user_name>.
     @log <"----------------------------------------">.
     return 0.

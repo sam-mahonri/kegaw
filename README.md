@@ -1,8 +1,12 @@
 # kegaw language
 
-this is a compiler that translates kegaw script into c and builds a standalone binary. it supports modular shards, custom aliases, and direct c injection.
+kegaw lang is a compiled educational programming language.
+
+this is a python compiler that transpiles kegaw scripts to c and generates a standalone compiled binary. the main distinguishing feature of this language is its dynamic syntax, where you can modify the appearance of the syntax. it supports modular shards, math, functions, custom aliases, and direct c injection.
 
 win version in dev
+
+gcc or mingw is required
 
 ## usage
 
