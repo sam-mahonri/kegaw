@@ -1,0 +1,1 @@
+this page is simply a temporary placeholder for the `kegaw.com` domain, documentation will be added to this monorepo later.

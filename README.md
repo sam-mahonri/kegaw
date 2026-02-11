@@ -1,4 +1,4 @@
-![Banner](repo/banner.png)
+![Banner](web/assets/banner.png)
 
 # kegaw language
 
